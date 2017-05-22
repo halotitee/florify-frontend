@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import auth from '../../auth'
-import './Login.css';
+import './login.css';
+import FontAwesome from 'react-fontawesome';
 
 const ENTER = 13;
 
@@ -30,16 +31,16 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div className="login">
-                <h3>{this.state.error}</h3>
-                <input type="text" ref="email"
-                       onKeyUp={this._handleTyping}
-                />
-                <input type="password" ref="password"
-                       onKeyUp={this._handleTyping}
-                />
-                <button onClick={this._handleLogin}>login</button>
-            </div>
+          <div className="login">
+          <div className="login-content">
+            <h1>Login</h1>
+            <input type="text" placeholder="Email" ref="email" onKeyUp={this._handleTyping}/><br/>
+            <input type="password"  placeholder="Password" ref="password" onKeyUp={this._handleTyping}/><br/>
+          <div className="login-button">
+            <button onClick={this._handleLogin}>Login</button>
+          </div>
+          </div>
+        </div>
         );
     }
 

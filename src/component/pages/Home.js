@@ -1,56 +1,78 @@
 import React, {Component} from 'react';
 import api from '../../api';
-import AddButton from '../elements/AddButton';
-import auth from '../../auth';
+import PlantCard from '../elements/PlantCard';
+import AddPlantCard from '../elements/AddPlantCard';
+// import auth from '../../auth';
 import './Home.css';
-// TODO: import PlantCard
-//import PlantCard from '../elements/Card';
+import CreatePlant from '../modals/CreatePlant';
+import FontAwesome from 'react-fontawesome';
 
+// This component is the INDEXROUTE "/"
+// it is responsible for fetching the plantsdata and map it to a
+// bunch of <PlantCard />'s.
+//
+// This component is also responsible for displaying the AddPlantCard
+// button along with the PlantCards. Upon clicking the <AddPlantCard />
+// this component will set it's own state to allow the <CreatePlant />
+// modal to render on the page. It will also pass a function to CreatePlant
+// which allows it to close itself upon submitting.
 
 export default class Home extends Component {
-    constructor() {
-        super();
-        this.state = {
-            plants: []
-        };
+  constructor(props) {
+    super(props)
+    this.state = {
+      showCreateModal: false
     }
+  }
 
-    componentDidMount() {
-        this._fetchPlantCardList();
-    }
+  componentDidMount() {
+      this._fetchPlants()
+  }
 
-    _fetchPlantCardList = () => {
-        api.getPlantCardsList()
-            .then(res => {
-                this.setState({ plants: res.body })
-            })
-            .catch(console.error)
-    };
+  _fetchPlants = () => {
+      api.getPlants(localStorage.token)
+      .then(res => {
+          this.setState({ plants: res.body })
+      })
 
+      .catch(console.error)
+  }
 
-    render() {
-        let { plants } = this.state;
-        return (
-            <div className="home">
-                { plants.map(plant =>
-                    <Plants
-                        key={plant.id}
-                        id={plant.id}
-                        nickname={plant.nickname}
-                        name={plant.name}
-                        description={plant.description}
-                        maxtemp={plant.maxtemp}
-                        mintemp={plant.mintemp}
-                        maxph={plant.maxph}
-                        minph={plant.minph}
-                        maxlux={plant.maxlux}
-                        minlux={plant.minlux}
-                        updatedAt={plant.updatedAt}
-                    />
-                )}
-                {auth.isLoggedIn() ? <AddButton this._handleOnClick /> : null}
+  _toggleCreateModal = () => this.setState({showCreateModal: !this.state.showCreateModal})
+  render() {
+      let { plants } = this.state
+      return (
+          <div className="home">
+            <div className="App-navbar">
+              <img className="logo" src={require("../../media/florify_logo.png")} alt="logo"/>
+
+              <i className="fa fa-cog fa-2x settings-icon"/>
             </div>
-        );
-    }
+            { plants && plants.map(plant => {
+                return <PlantCard
+                  fetchPlants={this._fetchPlants}
+                  key={plant.id}
+                  id={plant.id}
+                  nickname={plant.nickname}
+                  name={plant.name}
+                  // currentLux={plant.latestLux.reading}
+                  // currentFertility={plant.latestPh.reading}
+                  // currentTemp={plant.latestTemp.reading}
+                  // currentHum={plant.latestHum.reading}
+                />
+              }
+            )}
 
-}
+            <AddPlantCard showModal={ this._toggleCreateModal } />
+            {this.state.showCreateModal &&
+          <div className="backdrop">
+              <CreatePlant fetchPlants={this._fetchPlants} closeModal={this._toggleCreateModal}/>
+          </div>
+          }
+
+          </div>
+      );
+  }
+
+
+ }
