@@ -89,7 +89,7 @@ export default class EditPlant extends Component {
             onChange={({target})=>this.setState({description:target.value})}/>
         <br/>
 
-          <div classNameName="create__card-button">
+          <div className="create__card-button">
 
           <input type="test" placeholder="Maxtemp" value={this.state.maxtemp}
             onChange={({target})=>this.setState({maxtemp:target.value})}/>
@@ -127,9 +127,6 @@ export default class EditPlant extends Component {
                   <button className="cancel-delete-button"><a href="/">No</a></button>
                 </div>
 
-                // <div className="backdrop">
-                //     <DeletePlant id={this.state.id} fetchPlants={this._fetchPlants} closeModal={this._toggleDeleteModal}/>
-                // </div>
               }
             </span>
             <button><a href="/">Cancel</a></button>

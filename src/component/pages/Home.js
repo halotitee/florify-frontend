@@ -20,7 +20,8 @@ export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showCreateModal: false
+      showCreateModal: false,
+      loading: true
     }
   }
 
@@ -31,17 +32,22 @@ export default class Home extends Component {
   _fetchPlants = () => {
       api.getPlants(localStorage.token)
       .then(res => {
-          this.setState({ plants: res.body })
+          this.setState({
+            plants: res.body,
+            loading: false
+         })
       })
 
       .catch(console.error)
   }
 
   _toggleCreateModal = () => this.setState({showCreateModal: !this.state.showCreateModal})
+
   render() {
       let { plants } = this.state
       return (
           <div className="home">
+            {this.state.loading ? <h1> LOADING YR SHIT </h1>: null}
             { plants && plants.map(plant => {
                 return <PlantCard
                   fetchPlants={this._fetchPlants}
@@ -63,7 +69,6 @@ export default class Home extends Component {
               <CreatePlant fetchPlants={this._fetchPlants} closeModal={this._toggleCreateModal}/>
           </div>
           }
-
           </div>
       );
   }

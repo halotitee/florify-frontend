@@ -12,7 +12,7 @@ export default class DetailedPlantPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      period: "week",
+      period: 'day',
       [util.HUMIDITY]: false,
       [util.TEMPERATURE]: false,
       [util.LUX]: false,
@@ -167,8 +167,22 @@ export default class DetailedPlantPage extends Component {
             </div>
           </div>
           <div className='DetailedPlantPage-chart'>
+            { this.state.loading &&
+              <div className="spinner">
+                <div className="bounce1"></div>
+                <div className="bounce2"></div>
+                <div className="bounce3"></div>
+              </div>
+            }
+
             { !this.state.loading &&
-              <Chart data={ chartStuff.data } options={ chartStuff.options }/>
+              <div className='DetailedPlantPage-chart'>
+                <Chart data={ chartStuff.data } options={ chartStuff.options }/>
+                <div className='DetailedPlantPage-options'>
+                  <h4 onClick={ () => this.setState({period: 'day'})}> DAY </h4>
+                  <h4 onClick={ () => this.setStare({period: 'week'})}> WEEK </h4>
+                </div>
+            </div>
             }
           </div>
       </div>
