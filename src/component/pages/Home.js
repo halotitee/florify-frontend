@@ -5,6 +5,7 @@ import AddPlantCard from '../elements/AddPlantCard';
 // import auth from '../../auth';
 import './Home.css';
 import CreatePlant from '../modals/CreatePlant';
+import FontAwesome from 'react-fontawesome';
 
 // This component is the INDEXROUTE "/"
 // it is responsible for fetching the plantsdata and map it to a
@@ -47,6 +48,10 @@ export default class Home extends Component {
       let { plants } = this.state
       return (
           <div className="home">
+            <div className="App-navbar">
+              <img className="logo" src={require("../../media/florify_logo.png")} alt="logo"/>
+              <i className="fa fa-cog fa-2x settings-icon"/>
+            </div>
             {this.state.loading ? <h1> LOADING YR SHIT </h1>: null}
             { plants && plants.map(plant => {
                 return <PlantCard
