@@ -27,7 +27,6 @@ export default class PlantCard extends Component {
 
       return(
         <div className="plant-card">
-
           <Link to={`/plant/${id}`}>
               <div className="card-container">
                 <div className="card-item">
@@ -55,7 +54,6 @@ export default class PlantCard extends Component {
                 </div>
                 </div>
             </Link>
-
           <div className="card-edit">
             <button className="plant-edit-button" onClick={()=>this.setState({showEditModal: true})}>Edit</button>
           </div>

@@ -12,7 +12,7 @@ export default class DetailedPlantPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      period: "day",
+      period: "week",
       [util.HUMIDITY]: false,
       [util.TEMPERATURE]: false,
       [util.LUX]: false,
