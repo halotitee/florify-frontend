@@ -23,7 +23,7 @@
   border-radius: 5px;
   margin:auto; /* 15% from the top and centered */
   padding: 5%;
-  max-width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%; /* Could be more or less, depending on screen size */
   min-height: 60vh;
 }
 
