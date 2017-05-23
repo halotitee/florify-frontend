@@ -47,7 +47,6 @@ export default class EditPlant extends Component {
    }
 
   _submitCard = (event) => {
-    console.log("Edit 1");
     event.preventDefault();
 
     let {
@@ -75,72 +74,68 @@ export default class EditPlant extends Component {
   }
 
 
-  render(){
-    console.log("test 2");
-    return(
-      <div className="edit-plant-modal">
-        <h1>Edit Plant Card</h1>
-        <input type="text" placeholder="Nicename" value={this.state.nickname}
-            onChange={({target})=>this.setState({nickname:target.value})}/>
-        <br/>
-          <input type="text" placeholder="Name" value={this.state.name}
-            onChange={({target})=>this.setState({name:target.value})}/>
-        <br/>
-          <input type="test" placeholder="Description" value={this.state.description}
-            onChange={({target})=>this.setState({description:target.value})}/>
-        <br/>
+render(){
+  return (
+    <div className="edit-plant-modal-wrapper">
+      {!this.state.showDeleteModal ?
+         <div className="edit-plant-modal">
+            <h1>Edit Plant Card</h1>
+            <input type="text" placeholder="Nicename" value={this.state.nickname}
+                onChange={({target})=>this.setState({nickname:target.value})}/>
+            <br/>
+              <input type="text" placeholder="Name" value={this.state.name}
+                onChange={({target})=>this.setState({name:target.value})}/>
+            <br/>
+              <input type="test" placeholder="Description" value={this.state.description}
+                onChange={({target})=>this.setState({description:target.value})}/>
+            <br/>
 
-          <div classNameName="create__card-button">
+              <div className="create__card-button">
 
 
-          <input type="test" placeholder="Maxtemp" value={this.state.maxtemp}
-            onChange={({target})=>this.setState({maxtemp:target.value})}/>
-        <br/>
-          <input type="test" placeholder="Mintemp" value={this.state.mintemp}
-            onChange={({target})=>this.setState({mintemp:target.value})}/>
-        <br/>
-          <input type="test" placeholder="Maxph" value={this.state.maxph}
-            onChange={({target})=>this.setState({maxph:target.value})}/>
-        <br/>
-          <input type="test" placeholder="Minph" value={this.state.minph}
-            onChange={({target})=>this.setState({minph:target.value})}/>
-        <br/>
-          <input type="test" placeholder="Maxhum" value={this.state.maxhum}
-            onChange={({target})=>this.setState({maxhum:target.value})}/>
-        <br/>
-          <input type="test" placeholder="Minhum" value={this.state.minhum}
-            onChange={({target})=>this.setState({minhum:target.value})}/>
-        <br/>
-          <input type="test" placeholder="Maxlux" value={this.state.maxlux}
-            onChange={({target})=>this.setState({maxlux:target.value})}/>
-        <br/>
-          <input type="test" placeholder="Minlux" value={this.state.minlux}
-            onChange={({target})=>this.setState({minlux:target.value})}/>
-        <br/>
-          <div className="create__card-button">
+              <input type="test" placeholder="Maxtemp" value={this.state.maxtemp}
+                onChange={({target})=>this.setState({maxtemp:target.value})}/>
+            <br/>
+              <input type="test" placeholder="Mintemp" value={this.state.mintemp}
+                onChange={({target})=>this.setState({mintemp:target.value})}/>
+            <br/>
+              <input type="test" placeholder="Maxph" value={this.state.maxph}
+                onChange={({target})=>this.setState({maxph:target.value})}/>
+            <br/>
+              <input type="test" placeholder="Minph" value={this.state.minph}
+                onChange={({target})=>this.setState({minph:target.value})}/>
+            <br/>
+              <input type="test" placeholder="Maxhum" value={this.state.maxhum}
+                onChange={({target})=>this.setState({maxhum:target.value})}/>
+            <br/>
+              <input type="test" placeholder="Minhum" value={this.state.minhum}
+                onChange={({target})=>this.setState({minhum:target.value})}/>
+            <br/>
+              <input type="test" placeholder="Maxlux" value={this.state.maxlux}
+                onChange={({target})=>this.setState({maxlux:target.value})}/>
+            <br/>
+              <input type="test" placeholder="Minlux" value={this.state.minlux}
+                onChange={({target})=>this.setState({minlux:target.value})}/>
+            <br/>
+              <div className="create__card-button">
 
-            <span>
-              <button onClick={this._submitCard}><a href="/"><FontAwesome className='submitCard-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
-              <button onClick={this._toggleDeleteModal}><FontAwesome className='delete-icon' name='trash' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
-              {this.state.showDeleteModal &&
-
-                <div>
-                  <h3>Are you sure?</h3>
-                  <button className="confirm-delete-button" onClick={this._handleDelete}><FontAwesome className='Yes-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
-                  <button className="cancel-delete-button"><a href="/"><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
-                </div>
-
-                // <div className="backdrop">
-                //     <DeletePlant id={this.state.id} fetchPlants={this._fetchPlants} closeModal={this._toggleDeleteModal}/>
-                // </div>
-              }
-            </span>
-            <button><a href="/"><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
+                <span>
+                  <button onClick={this._submitCard}><a href="/"><FontAwesome className='submitCard-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
+                  <button onClick={this._toggleDeleteModal}><FontAwesome className='delete-icon' name='trash' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+                  <button onClick={this.props.closeModal}><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-
-      </div>
-    );
+         :
+         <div className="edit-plant-modal">
+            <h3>Are you sure?</h3>
+            <button className="confirm-delete-button" onClick={this._handleDelete}><FontAwesome className='Yes-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+            <button className="cancel-delete-button" onClick={this.props.closeModal}><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
+          </div>
+      }
+    </div>
+    )
   }
 
 }

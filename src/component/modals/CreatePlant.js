@@ -69,7 +69,7 @@ export default class CreatePlant extends Component {
 
         <div className="create__card-button">
             <button onClick={this._submitCard}><FontAwesome className='submitCard-icon' name='check' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
-            <button><a href="/"><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></a></button>
+            <button onClick={this.props.closeModal}><FontAwesome className='cancel-icon' name='times' size='3x' style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}/></button>
         </div>
       </div>
     )

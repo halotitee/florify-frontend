@@ -12,7 +12,7 @@ export default class DetailedPlantPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      period: "day",
+      period: 'day',
       [util.HUMIDITY]: false,
       [util.TEMPERATURE]: false,
       [util.LUX]: false,
@@ -62,7 +62,6 @@ export default class DetailedPlantPage extends Component {
         let fertilityDataSet = util.dataSetFactory(util.FERTILITY, datum.ph)
         // Labels for x axis
         let labels = res.body.timeAxis.map(el => moment(el).format('h:mm'))
-
         this.setState({
           // Set corresponding state
           [util.HUMIDITY]: true,
@@ -135,6 +134,7 @@ export default class DetailedPlantPage extends Component {
     let chartStuff = this._getDataAndOptions()
 
 
+
     return(
       <div className='DetailedPlantPage'>
         <div className='DetailedPlantPage-content'>
@@ -166,11 +166,26 @@ export default class DetailedPlantPage extends Component {
                 <p>{ currentFertility } f* </p>
             </div>
           </div>
-          <div className='DetailedPlantPage-chart'>
-            { !this.state.loading &&
-              <Chart data={ chartStuff.data } options={ chartStuff.options }/>
+
+            { this.state.loading &&
+              <div className='DetailedPlantPage-chart col-large-7 col-medium-6 col-small-12'>
+              <div className="spinner">
+                <div className="bounce1"></div>
+                <div className="bounce2"></div>
+                <div className="bounce3"></div>
+              </div>
+            </div>
             }
-          </div>
+
+            { !this.state.loading &&
+              	<div className='DetailedPlantPage-chart col-large-7 col-medium-6 col-small-12'>
+                <Chart data={ chartStuff.data } options={ chartStuff.options }/>
+                <div className='DetailedPlantPage-options'>
+                  <h4 onClick={ () => this.setState({period: 'day'})}> DAY </h4>
+                  <h4 onClick={ () => this.setState({period: 'week'})}> WEEK </h4>
+                </div>
+            </div>
+            }
       </div>
     </div>
   </div>
