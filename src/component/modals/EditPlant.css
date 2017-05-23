@@ -5,7 +5,7 @@
     background: white;
     padding: 8% 0;
     z-index:1;
-    /*position: absolute;*/
+
 }
 
 /*Add Animation */
@@ -26,8 +26,10 @@
     to {transform: scale(1)}
 }
 
+
+
 .backdrop {
-    position: absolute;
+    position: fixed;
     background-color: rgba(0,0,0,0.75);
     min-height: 100vh;
     width: 100vw;
@@ -44,22 +46,4 @@
 
 .check-icon {
 
-}
-
-/* The Close Button */
-.close-icon {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close-icon:hover,
-.close-icon:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
 }
