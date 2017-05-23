@@ -30,22 +30,23 @@
 .DetailedPlantPage-info {
   float: left;
   width: 40%;
-  padding-bottom: 5%;
+  padding: 0 5% 5% 0;
 }
 
 .DetailedPlantPage-info-box {
-
-  margin-left: 10%;
+  display: flex;
+  justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #1F3E18;
   float: left;
-  width: 80%;
+  width: 100%;
 }
 
-.DetailedPlantPage-info-box span {
-  width: 7%;
-  /*height: 50px;*/
+/*To make spans inline*/
+.DetailedPlantPage-info-box span, .DetailedPlantPage-info-hum-toggled span, .DetailedPlantPage-info-temp-toggled span, .DetailedPlantPage-info-lux-toggled span, .DetailedPlantPage-info-ph-toggled span {
+  width: 50px;
+  margin-left: 0;
 }
 
 .DetailedPlantPage-info h1, h2, h3, h4, h5, h6 {
@@ -93,49 +94,60 @@
   -ms-user-select: none; /* IE10+ */
 }
 .DetailedPlantPage-info-hum-toggled {
-  margin-left: 10%;
+  display: flex;
+  justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #1F3E18;
   float: left;
-  width: 80%;
+  width: 100%;
 	color: rgba(105, 142, 128, 1);
   background-color: rgba(105, 142, 128, 0.3);
 
 }
 .DetailedPlantPage-info-temp-toggled {
-  margin-left: 10%;
+  display: flex;
+  justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #1F3E18;
   float: left;
-  width: 80%;
+  width: 100%;
 	color: rgba(19, 46, 61, 1);
   background-color: rgba(19, 46, 61, 0.3);
 
 }
 .DetailedPlantPage-info-lux-toggled {
-  margin-left: 10%;
+  display: flex;
+  justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #1F3E18;
   float: left;
-  width: 80%;
+  width: 100%;
 	color: rgba(166, 113, 15, 1);
   background-color: rgba(166, 113, 15, 0.3);
 
 }
 .DetailedPlantPage-info-ph-toggled {
-  margin-left: 10%;
+  display: flex;
+  justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #1F3E18;
   float: left;
-  width: 80%;
+  width: 100%;
 	color: rgba(39, 74, 35, 1);
   background-color: rgba(39, 74, 35, 0.3);
 
 }
+
 button {
   margin-top: 80px;
+}
+
+.col-small-12 {
+  max-width: 100%;
+  padding-top: 5%;
+  margin: 0;
 }

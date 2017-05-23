@@ -139,7 +139,7 @@ export default class DetailedPlantPage extends Component {
       <div className='DetailedPlantPage'>
         <div className='DetailedPlantPage-content'>
           <div className='row'>
-            <div className='DetailedPlantPage-info col-large-5 col-medium-6 col-small-12'>
+            <div className='DetailedPlantPage-info col-large-4 col-medium-4 col-small-12'>
               <h1>{ nickname }</h1>
               <h4>{ name } </h4>
               <h4>{ description }</h4>
@@ -166,7 +166,7 @@ export default class DetailedPlantPage extends Component {
                 <p>{ currentFertility } f* </p>
             </div>
           </div>
-          <div className='DetailedPlantPage-chart col-large-7 col-medium-6 col-small-12'>
+          <div className='DetailedPlantPage-chart col-large-8 col-medium-8 col-small-12'>
             { !this.state.loading &&
               <Chart data={ chartStuff.data } options={ chartStuff.options }/>
             }

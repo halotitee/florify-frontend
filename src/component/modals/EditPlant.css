@@ -44,6 +44,8 @@
     padding: 20% 0;
 }
 
-.check-icon {
-
+button {
+    border: none;
+    background: none;
+    color: #1F3E18;
 }
