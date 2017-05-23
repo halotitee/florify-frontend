@@ -16,6 +16,7 @@
   width:100%;
   height:100%;
   border: 0;
+  overflow: scroll;
 }
 
 .DetailedPlantPage-content {
@@ -30,7 +31,7 @@
 .DetailedPlantPage-info {
   float: left;
   width: 40%;
-  padding: 0 5% 5% 0;
+  padding: 5% 5% 5% 0;
 }
 
 .DetailedPlantPage-info-box {
@@ -148,6 +149,6 @@ button {
 
 .col-small-12 {
   max-width: 100%;
-  padding-top: 5%;
+  padding: 5% 0;
   margin: 0;
 }
